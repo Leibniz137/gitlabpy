@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-RESOURCES = ["groups", "session"]
+RESOURCES = ["Groups", "Session"]
 
 for resource in RESOURCES:
     exec("from {} import *".format(resource))
