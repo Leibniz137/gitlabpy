@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+# import os
 
-RESOURCES = ["Groups", "Session"]
+# BASE_PATH = "/api/v3"
+RESOURCES = ["groups", "projects", "session", "users"]
 
 for resource in RESOURCES:
-    exec("from {} import *".format(resource))
+    exec("import {}".format(resource))

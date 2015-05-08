@@ -8,8 +8,29 @@ from credentials import (
 )
 
 
+class SessionError(Exception):
+    def __init__(self, string, response):
+        super(SessionError, self).__init__(string)
+        self.response = response
+
+
 class Session(object):
-    def __init__(self, host, token, verify):
+    @classmethod
+    def from_login(cls, host, verify=True, **kwargs):
+        """
+        kwargs should include
+        either 'login' or 'email' keys, as well as a 'password' key
+        """
+        headers = {'connection': 'close'}
+        response = api.session.login(host, headers, verify, **kwargs)
+        if response.status_code == api.session.login.success:
+            token = Token(response.json()['private_token'])
+        else:
+            raise SessionError(
+                "Failed to login: {}".format(response.reason), response)
+        return cls(host, token, verify)
+
+    def __init__(self, host, token, verify=True):
         headers = {token.key: token.value}
 
         class Resource(object):
@@ -18,7 +39,7 @@ class Session(object):
                     setattr(
                         self,
                         method.__name__,
-                        partial(method, host, token, headers, verify)
+                        partial(method, host, headers, verify)
                     )
         self.resource_cls = Resource
 

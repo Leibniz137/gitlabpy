@@ -5,7 +5,7 @@ from .base import PATH as BASEPATH
 
 
 @POST
-def Login(**kwargs):
+def login(**kwargs):
     return BASEPATH + "/session", kwargs
 
-METHODS = [Login]
+METHODS = [login]

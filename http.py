@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import requests
+import requests  # TODO: should this be in session.py instead?
 
 
 class Verb(object):
@@ -9,7 +9,7 @@ class Verb(object):
         self.api_method = fn
         self.__name__ = fn.__name__
 
-    def __call__(self, host, token, headers, verify, *args, **kwargs):
+    def __call__(self, host, headers, verify, *args, **kwargs):
         """
         decorates api_method, returns a function that can be passed to session
         """
@@ -28,9 +28,9 @@ class DELETE(Verb):
 
 
 class POST(Verb):
+    success = 201
     pass
 
 
 class PUT(Verb):
-    success = 201
     pass
