@@ -1,6 +1,7 @@
-# gitlabpy: gitlab api client for python
-  * [requests](http://docs.python-requests.org/en/latest/) for http verb methods
-  * Useful return values
+# gitlabpy: gitlab api client
+## Features:
+  * [requests](http://docs.python-requests.org/en/latest/) for http IO
+  * Useful return values (requests.Response instances)
 
 ## Basic Usage:
 ```python
@@ -23,14 +24,13 @@ sess = gitlabpy.Session(host, token, verify='/path/to/a/cert.crt')
 
 
 ## Conventions:
-####Grok these conventions to develop an intuition for how gitlabpy maps to the Gitlab API
-1. API calls are made from gitlabpy.Session objects by a Resource.Method pair
+####Grok these conventions to understand how gitlabpy maps to the Gitlab API
+1. API calls are made from gitlabpy.Session objects by a [resource](https://github.com/gitlabhq/gitlabhq/tree/master/doc/api#resources), method pair
   ```python
   # pattern is "session.resource.method"
   sess.users.list
   sess.groups.members
   ```
-  where 'resource' := [resource](https://github.com/gitlabhq/gitlabhq/tree/master/doc/api#resources)
 
 2. API method parameters are passed via keyword arguments
   ```python
@@ -40,12 +40,12 @@ sess = gitlabpy.Session(host, token, verify='/path/to/a/cert.crt')
   # get a list
   ```
 
-3. The keyword arguments accepted by a API method are exactly the ones listed in its corresponding documentation.
+3. The keyword arguments accepted by an API method are exactly the ones listed in its corresponding documentation.
   ```python
-  # e.g. takes 'id' keyword arg, see: https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/users.md#single-user
+  # e.g. takes 'id' keyword arg
   sess.users.single
   ```
-  Takes a single 'id' keyword argument, which matches what's described in the Parameters:' of its [documentation](https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/users.md#single-user)
+  Compare to the corresponding [documentation](https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/users.md#single-user)
 
 4. API method docstrings are the corresponding markdown header in the Gitlab API's README.md
   ```python
