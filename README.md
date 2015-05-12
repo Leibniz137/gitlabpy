@@ -1,4 +1,4 @@
-# gitlabpy: gitlab api client for python:
+# gitlabpy: gitlab api client for python
   * [requests](http://docs.python-requests.org/en/latest/) for http verb methods
   * Useful return values
 
