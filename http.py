@@ -8,6 +8,7 @@ class Verb(object):
     def __init__(self, fn):
         self.api_method = fn
         self.__name__ = fn.__name__
+        self.__doc__ = fn.__doc__
 
     def __call__(self, host, headers, verify, *args, **kwargs):
         """
