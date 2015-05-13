@@ -34,3 +34,10 @@ def edit_hipchat(**kwargs):
 def delete_hipchat(**kwargs):
     """Delete HipChat service"""
     return HIPCHAT_PATH, kwargs
+
+METHODS = [
+    delete_gitlabci,
+    delete_hipchat,
+    edit_gitlabci,
+    edit_hipchat
+]
