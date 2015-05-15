@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from ..http import (
-    DELETE,
     GET,
-    POST,
-    PUT
+    POST
 )
 from .projects import PATH as BASEPATH
 
