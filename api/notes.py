@@ -7,7 +7,7 @@ from ..http import (
 )
 
 from .issues import PROJECT_ISSUE_PATH
-from .projects import PROJECTS_PATH
+from .projects import PATH as PROJECTS_PATH
 from .merge_requests import SINGULAR as SINGULAR_MERGE_REQUEST
 
 

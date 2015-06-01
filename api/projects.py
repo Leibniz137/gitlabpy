@@ -9,6 +9,7 @@ from ..http import (
 from .base import PATH as BASEPATH
 
 PATH = BASEPATH + "/projects"
+SINGULAR = PATH + "/{id}"
 
 
 @GET
@@ -32,13 +33,13 @@ def all(**kwargs):
 @GET
 def single(**kwargs):
     """Get single project"""
-    return PATH + "/{id}".format(**kwargs), kwargs
+    return SINGULAR.format(**kwargs), kwargs
 
 
 @GET
 def events(**kwargs):
     """Get project events"""
-    return PATH + "/{id}/events", kwargs
+    return SINGULAR + "/events", kwargs
 
 
 @POST
@@ -56,7 +57,7 @@ def create_for_user(**kwargs):
 @PUT
 def edit(**kwargs):
     """Edit project"""
-    return PATH + "/{id}".format(**kwargs), kwargs
+    return SINGULAR.format(**kwargs), kwargs
 
 
 @POST
@@ -68,10 +69,10 @@ def fork(**kwargs):
 @DELETE
 def remove(**kwargs):
     """Remove project"""
-    return PATH + "/{id}".format(**kwargs), kwargs
+    return SINGULAR.format(**kwargs), kwargs
 
 
-MEMBERS_PATH = PATH + "/{id}/members"
+MEMBERS_PATH = SINGULAR + "/members"
 MEMBER_PATH = MEMBERS_PATH + "/{user_id}"
 
 
@@ -105,7 +106,7 @@ def remove_member(**kwargs):
     return MEMBER_PATH.format(**kwargs), kwargs
 
 
-HOOKS_PATH = PATH + "/{id}/hooks"
+HOOKS_PATH = SINGULAR + "/hooks"
 HOOK_PATH = HOOKS_PATH + "/{hook_id}"
 
 
@@ -139,7 +140,7 @@ def delete_hook(**kwargs):
     return HOOK_PATH.format(**kwargs), kwargs
 
 
-BRANCHES_PATH = PATH + "/{id}/repository"
+BRANCHES_PATH = SINGULAR + "/repository"
 BRANCH_PATH = BRANCHES_PATH + "/{branch}"
 
 
@@ -167,7 +168,7 @@ def unprotect(**kwargs):
     return (BRANCH_PATH + "/unprotect").format(**kwargs), kwargs
 
 
-FORK_PATH = PATH + "/{id}/fork"
+FORK_PATH = SINGULAR + "/fork"
 
 
 @POST
