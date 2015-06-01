@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-# import os
 
-# BASE_PATH = "/api/v3"
 RESOURCES = [
     "branches",
     "commits",

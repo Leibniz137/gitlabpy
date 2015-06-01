@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-import requests  # TODO: should this be in session.py instead?
+import requests
 
 
 class Verb(object):
     success = 200  # return code
+    urllib = requests
 
     def __init__(self, fn):
         self.api_method = fn
@@ -14,7 +15,7 @@ class Verb(object):
         """
         decorates api_method, returns a function that can be passed to session
         """
-        request = getattr(requests, self.__class__.__name__.lower())
+        request = getattr(self.urllib, self.__class__.__name__.lower())
 
         path, data = self.api_method(*args, **kwargs)
         return request(host + path, data=data, headers=headers, verify=verify)
