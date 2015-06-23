@@ -9,4 +9,4 @@ setup(
     author='Nathaniel Gentile',
     author_email='ncg09@hampshire.edu',
     package_dir={'gitlabpy': ''},
-    packages=['gitlabpy'])
+    packages=['gitlabpy', 'gitlabpy.api'])
