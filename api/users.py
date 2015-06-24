@@ -50,7 +50,7 @@ def current(**kwargs):
 @GET
 def current_keys(**kwargs):
     """List SSH keys"""
-    return SINGULAR + "/keys"
+    return SINGULAR + "/keys", kwargs
 
 
 @GET
