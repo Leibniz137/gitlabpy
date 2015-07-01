@@ -39,7 +39,7 @@ def single(**kwargs):
 @GET
 def events(**kwargs):
     """Get project events"""
-    return SINGULAR + "/events", kwargs
+    return SINGULAR + "/events".format(**kwargs), kwargs
 
 
 @POST
@@ -51,7 +51,7 @@ def create(**kwargs):
 @POST
 def create_for_user(**kwargs):
     """Create project for user"""
-    return PATH + "/user/{user_id}".format(**kwargs), kwargs
+    return (PATH + "/user/{user_id}").format(**kwargs), kwargs
 
 
 @PUT
@@ -63,7 +63,7 @@ def edit(**kwargs):
 @POST
 def fork(**kwargs):
     """Fork project"""
-    return PATH + "/fork/{id}".format(**kwargs), kwargs
+    return (PATH + "/fork/{id}").format(**kwargs), kwargs
 
 
 @DELETE
@@ -174,7 +174,7 @@ FORK_PATH = SINGULAR + "/fork"
 @POST
 def forked(**kwargs):
     """Create a forked from/to relation between existing projects"""
-    return FORK_PATH + "/{forked_from_id}".format(**kwargs), kwargs
+    return (FORK_PATH + "/{forked_from_id}").format(**kwargs), kwargs
 
 
 @DELETE
@@ -185,7 +185,7 @@ def unforked(**kwargs):
 
 @GET
 def search(**kwargs):
-    return PATH + "/search/{query}".format(**kwargs), kwargs
+    return (PATH + "/search/{query}").format(**kwargs), kwargs
 
 
 METHODS = [

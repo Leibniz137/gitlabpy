@@ -14,22 +14,22 @@ PATH = BASEPATH + "/files"
 @GET
 def single(**kwargs):
     """Get file from repository"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs
 
 
 @POST
 def new(**kwargs):
     """Create new file in repository"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs
 
 
 @PUT
 def update(**kwargs):
     """Update existing file in repository"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs
 
 
 @DELETE
 def delete(**kwargs):
     """Delete existing file in repository"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs

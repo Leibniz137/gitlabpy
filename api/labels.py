@@ -16,22 +16,22 @@ PATH = BASEPATH + "/labels"
 @GET
 def list(**kwargs):
     """List labels"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs
 
 
 @POST
 def create(**kwargs):
     """Create a new label"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs
 
 
 @DELETE
 def delete(**kwargs):
     """Delete a label"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs
 
 
 @PUT
 def edit(**kwargs):
     """Edit an existing label"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs

@@ -21,22 +21,22 @@ def list(**kwargs):
 @GET
 def project(**kwargs):
     """List project issues"""
-    return PROJECT_ISSUES_PATH, kwargs
+    return PROJECT_ISSUES_PATH.format(**kwargs), kwargs
 
 
 @GET
 def single(**kwargs):
     """Single issue"""
-    return PROJECT_ISSUE_PATH, kwargs
+    return PROJECT_ISSUE_PATH.format(**kwargs), kwargs
 
 
 @GET
 def create(**kwargs):
     """New issue"""
-    return PROJECT_ISSUES_PATH, kwargs
+    return PROJECT_ISSUES_PATH.format(**kwargs), kwargs
 
 
 @PUT
 def edit(**kwargs):
     """Edit issue"""
-    return PROJECT_ISSUE_PATH, kwargs
+    return PROJECT_ISSUE_PATH.format(**kwargs), kwargs

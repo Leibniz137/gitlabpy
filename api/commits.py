@@ -21,13 +21,13 @@ SHA_PATH = PATH + "/{sha}"
 @GET
 def single(**kwargs):
     """Get a single commit"""
-    return SHA_PATH, kwargs
+    return SHA_PATH.format(**kwargs), kwargs
 
 
 @GET
 def diff(**kwargs):
     """Get the diff of a commit"""
-    return SHA_PATH + "/diff", kwargs
+    return SHA_PATH + "/diff".format(**kwargs), kwargs
 
 
 COMMENTS_PATH = SHA_PATH + "/comments"
@@ -36,10 +36,10 @@ COMMENTS_PATH = SHA_PATH + "/comments"
 @GET
 def comments(**kwargs):
     """Get the comments of a commit"""
-    return COMMENTS_PATH, kwargs
+    return COMMENTS_PATH.format(**kwargs), kwargs
 
 
 @POST
 def comment(**kwargs):
     """Post comment to commit"""
-    return COMMENTS_PATH, kwargs
+    return COMMENTS_PATH.format(**kwargs), kwargs

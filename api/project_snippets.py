@@ -15,37 +15,37 @@ SINGULAR = PATH + "/{snippet_id}"
 @GET
 def list(**kwargs):
     """List snippets"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs
 
 
 @GET
 def single(**kwargs):
     """Single snippet"""
-    return SINGULAR, kwargs
+    return SINGULAR.format(**kwargs), kwargs
 
 
 @POST
 def create(**kwargs):
     """Create new snippet"""
-    return PATH, kwargs
+    return PATH.format(**kwargs), kwargs
 
 
 @PUT
 def update(**kwargs):
     """Update snippet"""
-    return SINGULAR, kwargs
+    return SINGULAR.format(**kwargs), kwargs
 
 
 @DELETE
 def delete(**kwargs):
     """Delete snippet"""
-    return SINGULAR, kwargs
+    return SINGULAR.format(**kwargs), kwargs
 
 
 @GET
 def content(**kwargs):
     """Snippet content"""
-    return SINGULAR + "/raw", kwargs
+    return (SINGULAR + "/raw").format(**kwargs), kwargs
 
 METHODS = [
     content,

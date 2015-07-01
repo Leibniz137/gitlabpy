@@ -20,7 +20,7 @@ def list(**kwargs):
 @GET
 def single(**kwargs):
     """Single user"""
-    return PLURAL + "/{id}".format(**kwargs), kwargs
+    return (PLURAL + "/{id}").format(**kwargs), kwargs
 
 
 @POST
@@ -32,13 +32,13 @@ def create(**kwargs):
 @PUT
 def modify(**kwargs):
     """User modification"""
-    return PLURAL + "/{id}".format(**kwargs), kwargs
+    return (PLURAL + "/{id}").format(**kwargs), kwargs
 
 
 @DELETE
 def delete(**kwargs):
     """User deletion"""
-    return PLURAL + "/{id}".format(**kwargs), kwargs
+    return (PLURAL + "/{id}").format(**kwargs), kwargs
 
 
 @GET
@@ -56,13 +56,13 @@ def current_keys(**kwargs):
 @GET
 def keys(**kwargs):
     """List SSH keys for user"""
-    return PLURAL + "/{uid}/keys", kwargs
+    return (PLURAL + "/{uid}/keys").format(**kwargs), kwargs
 
 
 @GET
 def key(**kwargs):
     """Single SSH Key"""
-    return SINGULAR + "/keys/{id}", kwargs
+    return (SINGULAR + "/keys/{id}").format(**kwargs), kwargs
 
 
 @POST
@@ -74,19 +74,19 @@ def add_key(**kwargs):
 @POST
 def add_user_key(**kwargs):
     """Add SSH key for user"""
-    return PLURAL + "/{id}/keys", kwargs
+    return (PLURAL + "/{id}/keys").format(**kwargs), kwargs
 
 
 @DELETE
 def delete_key(**kwargs):
     """Delete SSH key for current user"""
-    return SINGULAR + "/keys/{id}", kwargs
+    return (SINGULAR + "/keys/{id}").format(**kwargs), kwargs
 
 
 @DELETE
 def delete_user_key(**kwargs):
     """Delete SSH key for a given user"""
-    return PLURAL + "/{uid}/keys/{id}", kwargs
+    return (PLURAL + "/{uid}/keys/{id}").format(**kwargs), kwargs
 
 METHODS = [
     add_key,

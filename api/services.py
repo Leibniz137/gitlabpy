@@ -15,25 +15,25 @@ HIPCHAT_PATH = PATH + "/hipchat"
 @PUT
 def edit_gitlabci(**kwargs):
     """Edit GitLab CI service"""
-    return CI_PATH, kwargs
+    return CI_PATH.format(**kwargs), kwargs
 
 
 @DELETE
 def delete_gitlabci(**kwargs):
     """Delete GitLab CI service"""
-    return CI_PATH, kwargs
+    return CI_PATH.format(**kwargs), kwargs
 
 
 @PUT
 def edit_hipchat(**kwargs):
     """Edit HipChat service"""
-    return HIPCHAT_PATH, kwargs
+    return HIPCHAT_PATH.format(**kwargs), kwargs
 
 
 @DELETE
 def delete_hipchat(**kwargs):
     """Delete HipChat service"""
-    return HIPCHAT_PATH, kwargs
+    return HIPCHAT_PATH.format(**kwargs), kwargs
 
 METHODS = [
     delete_gitlabci,
