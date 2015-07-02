@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import functools
+
 import requests
 
 
@@ -15,10 +17,23 @@ class Verb(object):
         """
         decorates api_method, returns a function that can be passed to session
         """
-        request = getattr(self.urllib, self.__class__.__name__.lower())
-
         path, data = self.api_method(*args, **kwargs)
-        return request(host + path, data=data, headers=headers, verify=verify)
+        request = functools.partial(
+            getattr(self.urllib, self.__class__.__name__.lower()),
+            data=data,
+            headers=headers,
+            verify=verify)
+
+        response = request(host + path)
+        responses = [response]
+
+        if 'page' in kwargs:
+            # so that page i isn't repeatedly requested. TODO: test this case
+            del kwargs['page']
+        while 'next' in response.links:
+            response = request(response.links['next']['url'])
+            responses.append(response)
+        return responses
 
 
 class GET(Verb):
@@ -31,7 +46,6 @@ class DELETE(Verb):
 
 class POST(Verb):
     success = 201
-    pass
 
 
 class PUT(Verb):

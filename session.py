@@ -28,12 +28,12 @@ class Session(object):
         either 'login' or 'email' keys, as well as a 'password' key
         """
         headers = {'connection': 'close'}
-        response = api.session.login(host, headers, verify, **kwargs)
+        (response,) = api.session.login(host, headers, verify, **kwargs)
         if response.status_code == api.session.login.success:
             token = Token(response.json()['private_token'])
         else:
             raise SessionError(
-                "Failed to login: {}".format(response.reason), response)
+                "Failed to login: {0.reason}".format(response), response)
         return cls(host, token, verify)
 
     def __init__(self, host, token, verify=verify):

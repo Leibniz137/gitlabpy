@@ -35,15 +35,13 @@ sess = gitlabpy.Session(host, token, verify='/path/to/a/cert.crt')
 2. API method parameters are passed via keyword arguments
   ```python
   # get a list of users
-  response = sess.users.list(page=1, per_page=100)
-
-  # get a list
+  responses = sess.users.list()
   ```
 
 3. The keyword arguments accepted by an API method are exactly the ones listed in its corresponding documentation.
   ```python
   # e.g. takes 'id' keyword arg
-  sess.users.single
+  sess.users.single(id=144)
   ```
   Compare to the corresponding [documentation](https://github.com/gitlabhq/gitlabhq/blob/master/doc/api/users.md#single-user)
 
