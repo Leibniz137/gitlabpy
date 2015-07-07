@@ -2,7 +2,8 @@
 """
 module for representing gitlab api tokens
 """
-
+from __future__ import unicode_literals
+from builtins import object
 
 class Token(object):
     key = "PRIVATE-TOKEN"

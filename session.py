@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
+from __future__ import (
+    absolute_import,
+    unicode_literals
+)
+from builtins import object
 from functools import partial
 
 import api
 
-from credentials import Token
+from .credentials import Token
 
 
 class SessionError(Exception):

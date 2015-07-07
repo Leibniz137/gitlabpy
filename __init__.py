@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from credentials import (
+from __future__ import unicode_literals
+from .credentials import (
     OAuth,
     Token,
 )
-from session import (
+from .session import (
     Session,
     SessionError
 )

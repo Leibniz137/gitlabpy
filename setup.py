@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 from distutils.core import setup
 
 setup(
@@ -10,4 +9,4 @@ setup(
     author_email='ncg09@hampshire.edu',
     package_dir={'gitlabpy': ''},
     packages=['gitlabpy', 'gitlabpy.api'],
-    install_requires=['requests'])
+    install_requires=['requests', 'future'])
