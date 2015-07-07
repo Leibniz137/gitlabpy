@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ..http import POST
+from ..verb import POST
 from .base import PATH as BASEPATH
 
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from ..http import (
+from ..verb import (
     DELETE,
     GET,
     POST,
