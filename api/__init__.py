@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+from __future__ import (
+    absolute_import,
+    unicode_literals
+)
 
 RESOURCES = [
     "branches",
@@ -20,4 +24,4 @@ RESOURCES = [
 ]
 
 for resource in RESOURCES:
-    exec("import {}".format(resource))
+    exec("import api.{0} as {0}".format(resource))

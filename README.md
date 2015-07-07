@@ -2,6 +2,7 @@
 ## Features:
   * [requests](http://docs.python-requests.org/en/latest/) for http IO
   * Useful return values (requests.Response instances)
+  * 2.7 & 3.4 compatible
 
 ## Basic Usage:
 ```python
@@ -54,4 +55,3 @@ sess = gitlabpy.Session(baseurl, token, verify='/path/to/a/cert.crt')
 ## TODO:
 * OAuth support
 * {Integration, Unit} Tests
-* python3 support

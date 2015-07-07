@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
-from ..http import (
+from __future__ import unicode_literals
+from gitlabpy.verb import (
     DELETE,
     GET,
     POST
