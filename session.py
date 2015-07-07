@@ -22,21 +22,21 @@ class Session(object):
     verify = True
 
     @classmethod
-    def from_login(cls, host, verify=verify, **kwargs):
+    def from_login(cls, baseurl, verify=verify, **kwargs):
         """
         kwargs should include
         either 'login' or 'email' keys, as well as a 'password' key
         """
         headers = {'connection': 'close'}
-        (response,) = api.session.login(host, headers, verify, **kwargs)
+        (response,) = api.session.login(baseurl, headers, verify, **kwargs)
         if response.status_code == api.session.login.success:
             token = Token(response.json()['private_token'])
         else:
             raise SessionError(
                 "Failed to login: {0.reason}".format(response), response)
-        return cls(host, token, verify)
+        return cls(baseurl, token, verify)
 
-    def __init__(self, host, token, verify=verify):
+    def __init__(self, baseurl, token, verify=verify):
         headers = {token.key: token.value}
 
         class Resource(object):
@@ -45,7 +45,7 @@ class Session(object):
                     setattr(
                         self,
                         method.__name__,
-                        partial(method, host, headers, verify)
+                        partial(method, baseurl, headers, verify)
                     )
         self.resource_cls = Resource
 

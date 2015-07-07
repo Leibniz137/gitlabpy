@@ -15,11 +15,11 @@ sess = gitlabpy.Session.from_login(
 
 # or alternately via token
 token = gitlabpy.Token('EPZgnN5JK7C8FIG3C6xi')
-host = 'https://git.mydomain.net'
-sess = gitlabpy.Session(host, token)
+baseurl = 'https://git.mydomain.net'
+sess = gitlabpy.Session(baseurl, token)
 
 # If you need to add a non-Trusted cert, you can pass a 'verify' keyword arg
-sess = gitlabpy.Session(host, token, verify='/path/to/a/cert.crt')
+sess = gitlabpy.Session(baseurl, token, verify='/path/to/a/cert.crt')
 ```
 
 
