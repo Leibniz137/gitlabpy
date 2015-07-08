@@ -24,4 +24,4 @@ RESOURCES = [
 ]
 
 for resource in RESOURCES:
-    exec("import api.{0} as {0}".format(resource))
+    exec("from . import {0}".format(resource))

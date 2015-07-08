@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='gitlabpy',
-    version='0.2.0',
+    version='0.2.1',
     description='Gitlab for humans',
     author='Nathaniel Gentile',
     author_email='ncg09@hampshire.edu',

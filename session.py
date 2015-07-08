@@ -6,7 +6,7 @@ from __future__ import (
 from builtins import object
 from functools import partial
 
-import api
+from . import api
 
 from .credentials import Token
 
