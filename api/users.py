@@ -89,9 +89,22 @@ def delete_user_key(**kwargs):
     """Delete SSH key for a given user"""
     return (PLURAL + "/{uid}/keys/{id}").format(**kwargs), kwargs
 
+
+@PUT
+def block(**kwargs):
+    """Blocks the specified user. Available only for admin."""
+    return (PLURAL + "/{uid}/block").format(**kwargs), kwargs
+
+
+@PUT
+def unblock(**kwargs):
+    """Unblocks the specified user. Available only for admin."""
+    return (PLURAL + "/{uid}/unblock").format(**kwargs), kwargs
+
 METHODS = [
     add_key,
     add_user_key,
+    block,
     create,
     current,
     current_keys,
@@ -102,5 +115,6 @@ METHODS = [
     keys,
     list,
     modify,
-    single
+    single,
+    unblock,
 ]
